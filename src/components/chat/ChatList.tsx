@@ -1,4 +1,6 @@
-import { chats } from "@/data/mockChats";
+// import { chats } from "@/data/mockChats";
+import chats from "@/data/mockChats";
+// import { mockChats as chats } from "@/data/mockChats";
 import { useChatStore } from "@/store/chatStore";
 
 import ChatListItem from "./ChatListItem";
