@@ -12,22 +12,30 @@ const ChatList = () => {
   const filteredChats = useMemo(() => {
     const query = searchQuery.trim().toLowerCase();
 
-    return [...chats]
-      .filter((chat) => {
-        if (!query) {
-          return true;
-        }
+    return (
+      [...chats]
+        .filter((chat) => {
+          if (!query) {
+            return true;
+          }
 
-        return (
-          chat.user.name.toLowerCase().includes(query) ||
-          chat.lastMessage.text.toLowerCase().includes(query)
-        );
-      })
-      .sort((firstChat, secondChat) => {
-        return secondChat.lastMessage.id.localeCompare(
-          firstChat.lastMessage.id,
-        );
-      });
+          return (
+            chat.user.name.toLowerCase().includes(query) ||
+            chat.lastMessage.text.toLowerCase().includes(query)
+          );
+        })
+        // .sort((firstChat, secondChat) => {
+        //   return secondChat.lastMessage.id.localeCompare(
+        //     firstChat.lastMessage.id,
+        //   );
+        // });
+        .sort((firstChat, secondChat) => {
+          return (
+            new Date(secondChat.lastMessage.createdAt).getTime() -
+            new Date(firstChat.lastMessage.createdAt).getTime()
+          );
+        })
+    );
   }, [chats, searchQuery]);
 
   return (
