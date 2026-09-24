@@ -1,9 +1,9 @@
-import { firebaseApp } from "@/firebase/config";
+// import { firebaseApp } from "@/firebase/config";
 
 import ChatLayout from "@/components/chat/ChatLayout";
 
 const App = () => {
-  console.log("Firebase initialized:", firebaseApp.name);
+  // console.log("Firebase initialized:", firebaseApp.name);
 
   return <ChatLayout />;
 };
