@@ -1,4 +1,6 @@
-import { FormEvent, useState } from "react";
+// import { FormEvent, useState } from "react";
+import { useState } from "react";
+import type { FormEvent } from "react";
 
 import { useChatStore } from "@/store/chatStore";
 
