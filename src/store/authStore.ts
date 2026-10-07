@@ -76,7 +76,21 @@ export const useAuthStore = create<AuthStore>((set) => ({
     });
 
     try {
-      await createUserWithEmailAndPassword(auth, email, password);
+      // await createUserWithEmailAndPassword(auth, email, password);
+
+      // set({
+      //   isSubmitting: false,
+      // });
+      const userCredential = await createUserWithEmailAndPassword(
+        auth,
+        email,
+        password,
+      );
+
+      await createUserDocument({
+        uid: userCredential.user.uid,
+        email: userCredential.user.email ?? email,
+      });
 
       set({
         isSubmitting: false,
