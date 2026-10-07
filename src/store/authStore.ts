@@ -7,7 +7,7 @@ import {
   type User,
 } from "firebase/auth";
 
-import { auth } from "@/firebase/auth";
+// import { auth } from "@/firebase/auth";
 
 interface AuthStore {
   user: User | null;
