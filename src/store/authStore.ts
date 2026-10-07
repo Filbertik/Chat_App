@@ -8,6 +8,8 @@ import {
 } from "firebase/auth";
 
 // import { auth } from "@/firebase/auth";
+import { auth } from "@/firebase/auth";
+import { createUserDocument } from "@/services/userService";
 
 interface AuthStore {
   user: User | null;
